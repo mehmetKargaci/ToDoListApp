@@ -6,3 +6,10 @@
 //
 
 import Foundation
+//we can write Codable for both : Encodable, Decodable
+
+class Item: Codable {
+    var title: String = ""
+    var done: Bool = false
+    
+}
