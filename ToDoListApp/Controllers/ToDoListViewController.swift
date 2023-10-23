@@ -139,14 +139,20 @@ extension ToDoListViewController: UISearchBarDelegate {
         request.sortDescriptors = [sortDescriptor]
         
         loadItems(with: request) // we can simply refactor follwing code bei calling the function
-//        do {
-//            itemArray = try context.fetch(request)
-//        } catch {
-//            print("Error fetching dat from context \(error)")
-//        }
-//        tableView.reloadData()
-        
-    
+
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            loadItems()
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+            
+            
+            
+        }
     }
 }
+
 
